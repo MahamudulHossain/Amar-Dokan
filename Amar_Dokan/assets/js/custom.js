@@ -15,7 +15,7 @@ jQuery('#formRegId').on('submit',function(e){
         jQuery("#"+data.field).html(data.msg);
       }
       if(data.status == 'register_success'){
-        jQuery("#"+data.field).html(data.msg);
+        jQuery("#email_success").html(data.msg);
         jQuery('#formRegId')[0].reset();
       }
     }

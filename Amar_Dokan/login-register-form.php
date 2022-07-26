@@ -16,13 +16,13 @@ if($type == 'Register'){
   if($check>0){
     $arr = array('status'=>'register_error','msg'=>'Email id already exists in the database','field'=>'email_error');
   }else{
-    $random_string = rand_str();
-    $subject = "Verify your Email";
-    $content = SITE_PATH."Amar_Dokan/verify.php?verify_id=".$random_string;
-    mysqli_query($con,"insert into user(username,email,mobile,password,status,verify,added_on,rand_str) values('$username','$email','$mobile','$password',1,0,'$added_on','$random_string') ");
+    //$random_string = rand_str();
+    //$subject = "Verify your Email";
+    //$content = SITE_PATH."Amar_Dokan/verify.php?verify_id=".$random_string;
+    mysqli_query($con,"insert into user(username,email,mobile,password,status,verify,added_on) values('$username','$email','$mobile','$password',1,1,'$added_on') ");
 
-    send_email($email,$subject,$content);
-    $arr =array('status'=>'register_success','msg'=>'Thank you. Please check your email to verify your account','field'=>'email_success');
+    //send_email($email,$subject,$content);
+    $arr =array('status'=>'register_success','msg'=>'Thank you. Now you can login!!!','field'=>'email_success');
   }
   echo json_encode($arr);
 }
